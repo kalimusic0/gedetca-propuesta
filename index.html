@@ -1,0 +1,320 @@
+<meta charset="utf-8">
+<title>Propuesta GEDETCA SOFT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --paper:    #F1F4F4;
+    --surface:  #FFFFFF;
+    --surface-2:#E7EDEC;
+    --ink:      #17201F;
+    --ink-soft: #556361;
+    --line:     #D2DCDB;
+    --teal:     #0A5F6A;
+    --teal-deep:#05343A;
+    --accent:   #A9502F;
+    --accent-bg:#F3E4DD;
+    --good:     #2E7D6A;
+    --shadow:   0 1px 2px rgba(5,52,58,.05), 0 10px 30px rgba(5,52,58,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:    #0C1514;
+      --surface:  #121D1C;
+      --surface-2:#182523;
+      --ink:      #E7EEED;
+      --ink-soft: #93A5A3;
+      --line:     #26302F;
+      --teal:     #4BA7B2;
+      --teal-deep:#84C9D0;
+      --accent:   #E0895F;
+      --accent-bg:#2A1A12;
+      --good:     #5FB98C;
+      --shadow:   0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:    #0C1514;
+    --surface:  #121D1C;
+    --surface-2:#182523;
+    --ink:      #E7EEED;
+    --ink-soft: #93A5A3;
+    --line:     #26302F;
+    --teal:     #4BA7B2;
+    --teal-deep:#84C9D0;
+    --accent:   #E0895F;
+    --accent-bg:#2A1A12;
+    --good:     #5FB98C;
+    --shadow:   0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    font-size: 15.5px;
+  }
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(26px, 5vw, 56px) clamp(18px, 5vw, 52px) 64px;
+  }
+
+  a { color: var(--teal); }
+  h1, h2, h3 { font-family: "Archivo", sans-serif; letter-spacing: -.01em; text-wrap: balance; }
+
+  /* ---- header ---- */
+  .eyebrow {
+    font-family: "Archivo", sans-serif; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .18em; font-size: 12px;
+    color: var(--accent); margin: 0 0 14px;
+  }
+  h1 {
+    font-weight: 700; font-size: clamp(2.3rem, 6vw, 3.2rem);
+    line-height: 1; margin: 0 0 10px;
+  }
+  .tagline { font-size: clamp(1rem, 2.6vw, 1.15rem); color: var(--ink-soft); margin: 0; max-width: 44ch; }
+  .doc-meta {
+    margin-top: 18px; padding-top: 16px; border-top: 2px solid var(--teal-deep);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px;
+    color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 20px;
+  }
+  .intro { margin: 26px 0 0; max-width: 66ch; }
+
+  section { margin-top: clamp(38px, 7vw, 60px); }
+  h2 {
+    font-weight: 600; font-size: clamp(1.15rem, 3.5vw, 1.45rem); margin: 0 0 4px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  h2::before {
+    content: ""; width: 22px; height: 3px; background: var(--accent);
+    display: inline-block; flex: none; transform: translateY(-4px);
+  }
+  .h2-note { color: var(--ink-soft); font-size: .92rem; margin: 0 0 20px; }
+
+  /* ---- qué cubre ---- */
+  .cubre-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 8px 26px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 620px) { .cubre-list { grid-template-columns: 1fr 1fr; } }
+  .cubre-list li {
+    position: relative; padding-left: 22px; font-size: .95rem;
+  }
+  .cubre-list li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 7px; height: 7px; background: var(--teal); border-radius: 2px;
+  }
+
+  /* ---- planes ---- */
+  .planes { display: grid; gap: 18px; }
+  @media (min-width: 760px) { .planes { grid-template-columns: 1fr 1fr; align-items: start; } }
+  .plan {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px 24px 28px; box-shadow: var(--shadow); position: relative;
+  }
+  .plan.rec { border-color: var(--accent); }
+  .plan .badge {
+    position: absolute; top: -11px; left: 24px;
+    background: var(--accent); color: #fff;
+    font-family: "Archivo", sans-serif; font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .1em;
+    padding: 3px 11px; border-radius: 5px;
+  }
+  .plan-name { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 1.2rem; margin: 0; }
+  .plan-for { color: var(--ink-soft); font-size: .88rem; margin: 4px 0 16px; }
+  .price {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 500;
+    font-size: 2rem; color: var(--accent); line-height: 1;
+  }
+  .price small { display: block; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; font-family: "Archivo", sans-serif; }
+  .plan hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+  .feat { list-style: none; padding: 0; margin: 0; }
+  .feat li { position: relative; padding-left: 24px; margin-bottom: 9px; font-size: .92rem; }
+  .feat li::before {
+    content: "✓"; position: absolute; left: 0; top: 0;
+    color: var(--good); font-weight: 700;
+  }
+  .feat.no li::before { content: "–"; color: var(--ink-soft); font-weight: 600; }
+  .feat-label {
+    font-family: "Archivo", sans-serif; font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft);
+    margin: 16px 0 10px;
+  }
+
+  /* ---- bloques info ---- */
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 24px; box-shadow: var(--shadow);
+  }
+  .card.mant { border-left: 3px solid var(--teal); }
+  .mant-price {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 500;
+    font-size: 1.3rem; color: var(--teal); margin: 0 0 4px;
+  }
+  .inline-list { margin: 10px 0 0; padding-left: 18px; }
+  .inline-list li { margin-bottom: 5px; font-size: .93rem; }
+
+  .cond { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .cond li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+    font-size: .93rem; color: var(--ink);
+  }
+  .cond li b {
+    font-family: "IBM Plex Mono", monospace; font-weight: 500; color: var(--teal);
+    font-size: .8rem; padding-top: 2px;
+  }
+
+  footer {
+    margin-top: 54px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: .86rem; color: var(--ink-soft);
+    display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between;
+  }
+  footer .brand { font-family: "Archivo", sans-serif; font-weight: 700; color: var(--ink); letter-spacing: .02em; }
+
+  .fill { color: var(--accent); background: var(--accent-bg); padding: 0 4px; border-radius: 3px; font-size: .92em; }
+
+  @media print {
+    body { background: #fff; font-size: 10.5pt; }
+    .sheet { max-width: none; padding: 0; }
+    .plan, .card { box-shadow: none; break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header>
+    <p class="eyebrow">Propuesta comercial</p>
+    <h1>GEDETCA&nbsp;SOFT</h1>
+    <p class="tagline">Sistema de trazabilidad y producción para plantas procesadoras de camarón.</p>
+    <div class="doc-meta">
+      <span>Emitida: 28/08/2026</span>
+      <span>Validez: 30 días desde la fecha de emisión</span>
+    </div>
+    <p class="intro">
+      GEDETCA&nbsp;SOFT digitaliza la operación completa de la planta —desde la recepción de la
+      materia prima hasta el despacho—, con trazabilidad por lote y código SSCC, liquidaciones de
+      producción y túnel, control de cámara de frío y etiquetado industrial. Se ofrece en dos
+      planes, según el nivel de acceso que necesite su empresa.
+    </p>
+  </header>
+
+  <section>
+    <h2>Qué cubre el sistema</h2>
+    <ul class="cubre-list">
+      <li>Recepción de guías y lotes de materia prima</li>
+      <li>Órdenes de producción</li>
+      <li>Liquidación de producción (entero y cola)</li>
+      <li>Congelado en túneles y control de tumbada</li>
+      <li>Masterizado y armado de pallets (SSCC / GS1)</li>
+      <li>Cámara de frío: Kardex de existencias y movimientos</li>
+      <li>Egreso, conversión y despacho</li>
+      <li>Etiquetado industrial con BarTender</li>
+      <li>Fichas técnicas y análisis de materia prima (calidad)</li>
+      <li>Torre de control: saldo pendiente en cada etapa</li>
+      <li>Aplicación móvil Android para piso de planta</li>
+      <li>Chat interno entre áreas</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Planes</h2>
+    <p class="h2-note">Ambos son de pago único e incluyen la puesta en marcha completa.</p>
+    <div class="planes">
+
+      <div class="plan">
+        <p class="plan-name">Aplicación</p>
+        <p class="plan-for">Para operar de inmediato, sin acceso al código.</p>
+        <div class="price">USD 5.000<small>Pago único</small></div>
+        <hr>
+        <p class="feat-label">Incluye</p>
+        <ul class="feat">
+          <li>Servidor de la aplicación como ejecutable (sin dependencias que instalar)</li>
+          <li>Instalador para las PC de la planta</li>
+          <li>Aplicación Android (APK) apuntando al servidor de su planta</li>
+          <li>Instalación, puesta en marcha y migración de datos inicial</li>
+          <li>Capacitación al personal</li>
+          <li>6 meses de acompañamiento y ajustes posteriores a la puesta en marcha</li>
+        </ul>
+        <p class="feat-label">No incluye</p>
+        <ul class="feat no">
+          <li>Código fuente ni derecho de modificación</li>
+          <li>Servidor físico y hosting (los provee el cliente)</li>
+        </ul>
+      </div>
+
+      <div class="plan rec">
+        <span class="badge">Recomendado</span>
+        <p class="plan-name">Aplicación + Código Fuente</p>
+        <p class="plan-for">Todo lo anterior, más el código para adaptarlo a su medida.</p>
+        <div class="price">USD 10.000<small>Pago único</small></div>
+        <hr>
+        <p class="feat-label">Incluye además</p>
+        <ul class="feat">
+          <li>Código fuente completo (versión web) y documentación técnica</li>
+          <li>Licencia de modificación para uso propio de la empresa</li>
+          <li>GEDETCA&nbsp;SOFT puede seguir ampliando el sistema a pedido</li>
+        </ul>
+        <p class="feat-label">No incluye</p>
+        <ul class="feat no">
+          <li>Derecho de reventa, redistribución o comercialización</li>
+          <li>Servidor físico y hosting</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Incluido en ambos planes</h2>
+    <ul class="cubre-list">
+      <li>1 planta / sitio, con usuarios ilimitados dentro del sitio</li>
+      <li>Base de datos MySQL</li>
+      <li>Personalización con el logo y los datos de la empresa</li>
+      <li>Integración con impresoras industriales (BarTender)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Mantenimiento anual <span style="font-family:'IBM Plex Sans';font-weight:400;font-size:.7em;color:var(--ink-soft)">— opcional, recomendado</span></h2>
+    <div class="card mant">
+      <p class="mant-price">18&nbsp;% del valor de la licencia, por año</p>
+      <p style="margin:0;color:var(--ink-soft);font-size:.92rem;">Renovable. Sin mantenimiento activo, el soporte y los ajustes se cotizan por hora.</p>
+      <ul class="inline-list">
+        <li>Actualizaciones de versión y nuevas funciones generales</li>
+        <li>Ajustes y mejoras de funcionamiento</li>
+        <li>Soporte remoto para consultas y ajustes menores de uso normal</li>
+        <li>Compatibilidad con nuevas versiones de Windows y MySQL</li>
+      </ul>
+      <p style="margin:12px 0 0;font-size:.9rem;">
+        Los desarrollos nuevos, integraciones o cambios de alcance se cotizan por separado.
+        El primer año puede incluirse en la compra o contratarse con descuento.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Condiciones</h2>
+    <ul class="cond">
+      <li><b>01</b><span>Precios en dólares (USD). No incluyen IVA.</span></li>
+      <li><b>02</b><span>Forma de pago: 50&nbsp;% al inicio, 50&nbsp;% contra entrega y aceptación.</span></li>
+      <li><b>03</b><span>La aplicación móvil requiere que el servidor de la planta esté accesible en la red interna. Las funciones que dependen de internet (notificaciones, pantalla sin conexión) requieren un dominio propio con certificado, disponible como servicio adicional.</span></li>
+      <li><b>04</b><span>Licencia de uso intransferible. En ambos planes está prohibida la reventa, redistribución o comercialización del sistema.</span></li>
+      <li><b>05</b><span>Esta propuesta es referencial y puede ajustarse según el alcance final que se acuerde.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span class="brand">GEDETCA&nbsp;SOFT</span>
+    <span>Carlos Hernández · +593&nbsp;98&nbsp;397&nbsp;8603 · ventas@gedetca.com</span>
+    <span>2026</span>
+  </footer>
+
+</div>

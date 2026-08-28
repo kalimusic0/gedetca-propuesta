@@ -6,49 +6,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 
 <style>
+  /* Documento con un solo look claro, pintado explícitamente para que se
+     mantenga aunque el visitante tenga el equipo en modo oscuro. */
   :root {
-    --paper:    #F1F4F4;
+    --paper:    #FBFCFC;
     --surface:  #FFFFFF;
-    --surface-2:#E7EDEC;
+    --surface-2:#EDF2F1;
     --ink:      #17201F;
     --ink-soft: #556361;
-    --line:     #D2DCDB;
+    --line:     #DCE4E3;
     --teal:     #0A5F6A;
     --teal-deep:#05343A;
     --accent:   #A9502F;
-    --accent-bg:#F3E4DD;
+    --accent-bg:#F5E7E0;
     --good:     #2E7D6A;
-    --shadow:   0 1px 2px rgba(5,52,58,.05), 0 10px 30px rgba(5,52,58,.07);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper:    #0C1514;
-      --surface:  #121D1C;
-      --surface-2:#182523;
-      --ink:      #E7EEED;
-      --ink-soft: #93A5A3;
-      --line:     #26302F;
-      --teal:     #4BA7B2;
-      --teal-deep:#84C9D0;
-      --accent:   #E0895F;
-      --accent-bg:#2A1A12;
-      --good:     #5FB98C;
-      --shadow:   0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper:    #0C1514;
-    --surface:  #121D1C;
-    --surface-2:#182523;
-    --ink:      #E7EEED;
-    --ink-soft: #93A5A3;
-    --line:     #26302F;
-    --teal:     #4BA7B2;
-    --teal-deep:#84C9D0;
-    --accent:   #E0895F;
-    --accent-bg:#2A1A12;
-    --good:     #5FB98C;
-    --shadow:   0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.4);
+    --shadow:   0 1px 2px rgba(5,52,58,.04), 0 10px 30px rgba(5,52,58,.07);
+    color-scheme: light;
   }
 
   * { box-sizing: border-box; }
